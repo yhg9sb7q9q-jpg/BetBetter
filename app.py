@@ -97,6 +97,9 @@ st.set_page_config(
 @st.cache_data
 def load_data(file):
     return pd.read_csv(f"data/{file}")
+    @st.cache_data(ttl=3600)
+def load_fixtures():
+    return pd.read_csv("data/epl_fixtures_today.csv")
 
 leagues = ["EPL", "LaLiga"]
 teams = list(pd.concat([load_data("EPL.csv")['HomeTeam'],
