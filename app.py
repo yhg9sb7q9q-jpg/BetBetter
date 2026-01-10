@@ -71,7 +71,11 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
     * avg
     * 1.1
 )
-    away_xg = attack[away]*defense[home]*avg
+    away_xg = (
+    attack.get(away, 1.0)
+    * defense.get(home, 1.0)
+    * avg
+)
     results={"H":0,"D":0,"A":0}
     scores={}
     for _ in range(sims):
