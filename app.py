@@ -203,7 +203,7 @@ def simulate_match(home, away, attack, defense, avg_goals):
         "draw": draw_prob,
         "away": away_prob
 }
-return results, scores, home_xg, away_xg
+    return results, scores, home_xg, away_xg
 fixtures = load_fixtures()
 
 predictions = []
