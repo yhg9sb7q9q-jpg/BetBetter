@@ -192,7 +192,7 @@ for _ in range(sims):
         else: results["A"]+=1
         score=f"{hg}-{ag}"
         scores[score]=scores.get(score,0)+1
-    return results, scores, home_xg, away_xg
+return results, scores, home_xg, away_xg
 
 fixtures = load_fixtures()
 
