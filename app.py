@@ -98,6 +98,8 @@ total = sum(results.values())
 p_home = results["H"]/total
 p_draw = results["D"]/total
 p_away = results["A"]/total
+if home not in attack or away not in defense:
+    print(f"Missing team data: {home} vs {away}")
 
 # ----- OVER/UNDER & BTTS -----
 def over_under_probs(total_xg, line=2.5):
