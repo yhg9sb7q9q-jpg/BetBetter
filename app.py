@@ -188,7 +188,8 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
         else: results["A"]+=1
         score=f"{hg}-{ag}"
         scores[score]=scores.get(score,0)+1
-        def simulate_match(home, away, attack, defense, avg_goals):
+        
+def simulate_match(home, away, attack, defense, avg_goals):
     # example probabilities
     home_prob = 0.55
     draw_prob = 0.25
@@ -202,7 +203,7 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
         "draw": draw_prob,
         "away": away_prob
 }
-    return results, scores, home_xg, away_xg
+return results, scores, home_xg, away_xg
 fixtures = load_fixtures()
 
 predictions = []
