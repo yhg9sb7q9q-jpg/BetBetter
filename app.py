@@ -116,7 +116,11 @@ attack = {team: 1.0 for team in teams}
 defense = {team: 1.0 for team in teams}
 
 # ----- LOAD LEAGUE DATA -----
-df = load_data(f"{league}.csv")
+FILE_MAP = {
+    "EPL": "EPL.csv",
+    "La Liga": "La_Liga.csv"
+}
+df = load_data(FILE_MAP[league])
 
 # ----- TEAM STRENGTHS -----
 def team_strengths(df):
