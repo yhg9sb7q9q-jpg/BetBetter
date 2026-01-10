@@ -79,7 +79,12 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
         scores[score]=scores.get(score,0)+1
     return results, scores, home_xg, away_xg
 
-results, scores, hxg, axg = simulate_match(home, away, attack, defense, avg)
+home = normalize_team(home)
+away = normalize_team(away)
+
+results, scores, hxg, axg = simulate_match(
+    home, away, attack, defense, avg
+)
 total = sum(results.values())
 p_home = results["H"]/total
 p_draw = results["D"]/total
