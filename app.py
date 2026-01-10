@@ -8,6 +8,51 @@ import os
 from betting.value import fair_odds, value_percentage
 from betting.staking import kelly_stake
 from notifications.telegram import send_telegram
+LEAGUE_TEAMS = {
+    "EPL": [
+        "arsenal",
+        "aston villa",
+        "bournemouth",
+        "brentford",
+        "brighton",
+        "burnley",
+        "chelsea",
+        "crystal palace",
+        "everton",
+        "fulham",
+        "liverpool",
+        "luton",
+        "manchester city",
+        "manchester united",
+        "newcastle",
+        "nottingham forest",
+        "sheffield united",
+        "tottenham",
+        "west ham",
+        "wolves"
+    ],
+    "La Liga": [
+        "alaves",
+        "athletic club",
+        "atletico madrid",
+        "barcelona",
+        "cadiz",
+        "celta vigo",
+        "getafe",
+        "girona",
+        "granada",
+        "las palmas",
+        "mallorca",
+        "osasuna",
+        "rayo vallecano",
+        "real betis",
+        "real madrid",
+        "real sociedad",
+        "sevilla",
+        "valencia",
+        "villarreal"
+    ]
+}
 def normalize_team(name):
     return name.strip().lower()
 st.markdown("""
