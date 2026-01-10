@@ -8,6 +8,14 @@ import os
 from betting.value import fair_odds, value_percentage
 from betting.staking import kelly_stake
 from notifications.telegram import send_telegram
+st.markdown("""
+<link rel="manifest" href="/static/manifest.json">
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/static/service-worker.js')
+}
+</script>
+""", unsafe_allow_html=True)
 
 # ----- PAGE CONFIG -----
 st.set_page_config(
