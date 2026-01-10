@@ -165,15 +165,27 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
         scores[score]=scores.get(score,0)+1
     return results, scores, home_xg, away_xg
 
-home = st.selectbox("Home Team", teams)
-away = st.selectbox("Away Team", teams)
+fixtures = load_fixtures()
 
-home = normalize_team(home)
-away = normalize_team(away)
+predictions = []
 
-results, scores, hxg, axg = simulate_match(
-    home, away, attack, defense, avg
-)
+for _, row in fixtures.iterrows():
+    home = normalize_team(row["home"])
+    away = normalize_team(row["away"])
+
+    results, scores, hxg, axg = simulate_match(
+        home, away, attack, defense, avg_goals
+    )
+
+    predictions.append({
+        "home": home,
+        "away": away,
+        "home_xg": round(hxg, 2),
+        "away_xg": round(axg, 2),
+        "home_win_prob": results["home"],
+        "draw_prob": results["draw"],
+        "away_win_prob": results["away"]
+    })
 total = sum(results.values())
 p_home = results["H"]/total
 p_draw = results["D"]/total
