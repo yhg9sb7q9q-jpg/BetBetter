@@ -207,6 +207,7 @@ for _, row in fixtures.iterrows():
         "away": away,
         "home_xg": round(hxg, 2),
         "away_xg": round(axg, 2),
+        st.write("RESULTS KEYS:", list(results.keys()))
         "home_win_prob": results["home"],
         "draw_prob": results["draw"],
         "away_win_prob": results["away"]
