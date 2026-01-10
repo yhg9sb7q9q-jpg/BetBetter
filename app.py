@@ -103,7 +103,7 @@ def load_fixtures():
 @st.cache_data(ttl=600)
 def load_odds():
     return pd.read_csv("data/epl_odds_today.csv")
-    def is_value_bet(prob, odds, min_ev=0.05):
+def is_value_bet(prob, odds, min_ev=0.05):
     ev = (prob * odds) - 1
     return ev >= min_ev, ev
 
