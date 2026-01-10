@@ -1,0 +1,3 @@
+Date,League,HomeTeam,AwayTeam
+2026-01-10,EPL,Arsenal,Aston Villa
+2026-01-10,LaLiga,Barcelona,Betis
