@@ -172,19 +172,19 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
     * avg
     * 1.1
 )
-results = {
+    results = {
     "home": results["H"],
     "draw": results["D"],
     "away": results["A"]
 }
-away_xg = (
+    away_xg = (
     attack.get(away, 1.0)
     * defense.get(home, 1.0)
     * avg
 )
-results={"H":0,"D":0,"A":0}
-scores={}
-for _ in range(sims):
+    results={"H":0,"D":0,"A":0}
+    scores={}
+    for _ in range(sims):
         hg = poisson.rvs(home_xg)
         ag = poisson.rvs(away_xg)
         if hg>ag: results["H"]+=1
@@ -192,7 +192,7 @@ for _ in range(sims):
         else: results["A"]+=1
         score=f"{hg}-{ag}"
         scores[score]=scores.get(score,0)+1
-return results, scores, home_xg, away_xg
+    return results, scores, home_xg, away_xg
 
 fixtures = load_fixtures()
 
