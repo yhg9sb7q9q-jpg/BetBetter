@@ -166,7 +166,7 @@ attack, defense, avg = team_strengths(df)
 
 # ----- SIMULATION -----
 def simulate_match(home, away, attack, defense, avg, sims=10000):
-home_xg = (
+    home_xg = (
     attack.get(home, 1.0)
     * defense.get(away, 1.0)
     * avg
