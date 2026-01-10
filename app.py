@@ -215,6 +215,14 @@ for _, row in fixtures.iterrows():
 for _, o in odds_df.iterrows():
     home = normalize_team(o["home"])
     away = normalize_team(o["away"])
+    attack = {team.lower(): value for team, value in attack.items()}
+    defense = {team.lower(): value for team, value in defense.items()}
+    results = {
+    "home": home_prob,   # float between 0 and 1
+    "draw": draw_prob,   # float between 0 and 1
+    "away": away_prob    # float between 0 and 1
+}
+    return results, scores, home_xg, away_xg
 
     match = next(
         (p for p in predictions if p["home"] == home and p["away"] == away),
