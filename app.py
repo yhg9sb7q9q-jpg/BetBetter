@@ -158,6 +158,9 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
         scores[score]=scores.get(score,0)+1
     return results, scores, home_xg, away_xg
 
+home = st.selectbox("Home Team", teams)
+away = st.selectbox("Away Team", teams)
+
 home = normalize_team(home)
 away = normalize_team(away)
 
