@@ -1,6 +1,0 @@
-def kelly_stake(prob, odds, bankroll, fraction=0.25):
-    edge = odds * prob - 1
-    if edge <= 0:
-        return 0
-    kelly = (edge / (odds - 1)) * fraction
-    return round(bankroll * kelly, 2)
