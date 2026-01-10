@@ -122,6 +122,8 @@ def load_odds():
 def is_value_bet(prob, odds, min_ev=0.05):
     ev = (prob * odds) - 1
     return ev >= min_ev, ev
+    def normalize_team(name):
+    return name.lower().strip()
 
 leagues = ["EPL", "LaLiga"]
 teams = list(pd.concat([load_data("EPL.csv")['HomeTeam'],
