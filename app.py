@@ -201,12 +201,12 @@ for _, row in fixtures.iterrows():
         home, away, attack, defense, avg_goals
     )
 
+    st.write("RESULTS TYPE:", type(results))
     predictions.append({
         "home": home,
         "away": away,
         "home_xg": round(hxg, 2),
         "away_xg": round(axg, 2),
-        st.write("RESULTS TYPE:", type(results))
         "home_win_prob": results["home"],
         "draw_prob": results["draw"],
         "away_win_prob": results["away"]
