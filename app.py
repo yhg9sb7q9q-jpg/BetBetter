@@ -100,6 +100,9 @@ def load_data(file):
     @st.cache_data(ttl=3600)
 def load_fixtures():
     return pd.read_csv("data/epl_fixtures_today.csv")
+    @st.cache_data(ttl=600)
+def load_odds():
+    return pd.read_csv("data/epl_odds_today.csv")
 
 leagues = ["EPL", "LaLiga"]
 teams = list(pd.concat([load_data("EPL.csv")['HomeTeam'],
