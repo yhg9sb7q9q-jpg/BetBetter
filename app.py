@@ -18,6 +18,28 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 """, unsafe_allow_html=True)
+EPL_TEAMS = [
+    "arsenal",
+    "aston villa",
+    "bournemouth",
+    "brentford",
+    "brighton",
+    "burnley",
+    "chelsea",
+    "crystal palace",
+    "everton",
+    "fulham",
+    "liverpool",
+    "luton",
+    "manchester city",
+    "manchester united",
+    "newcastle",
+    "nottingham forest",
+    "sheffield united",
+    "tottenham",
+    "west ham",
+    "wolves"
+]
 
 # ----- PAGE CONFIG -----
 st.set_page_config(
