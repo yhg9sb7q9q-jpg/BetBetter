@@ -192,6 +192,38 @@ for _, row in fixtures.iterrows():
         "draw_prob": results["draw"],
         "away_win_prob": results["away"]
     })
+    value_bets = []
+
+for _, o in odds_df.iterrows():
+    home = normalize_team(o["home"])
+    away = normalize_team(o["away"])
+
+    match = next(
+        (p for p in predictions if p["home"] == home and p["away"] == away),
+        None
+    )
+
+    if match is None:
+        continue
+
+    if o["market"] == "home_win":
+        prob = match["home_win_prob"]
+    elif o["market"] == "draw":
+        prob = match["draw_prob"]
+    elif o["market"] == "away_win":
+        prob = match["away_win_prob"]
+    else:
+        continue
+
+    is_value, ev = is_value_bet(prob, o["odds"])
+
+    if is_value:
+        value_bets.append({
+            "match": f"{home} vs {away}",
+            "market": o["market"],
+            "odds": o["odds"],
+            "ev": round(ev, 3)
+        })
 total = sum(results.values())
 p_home = results["H"]/total
 p_draw = results["D"]/total
