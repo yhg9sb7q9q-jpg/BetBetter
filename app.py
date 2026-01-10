@@ -8,6 +8,8 @@ import os
 from betting.value import fair_odds, value_percentage
 from betting.staking import kelly_stake
 from notifications.telegram import send_telegram
+def normalize_team(name):
+    return name.strip().lower()
 st.markdown("""
 <link rel="manifest" href="/static/manifest.json">
 <script>
