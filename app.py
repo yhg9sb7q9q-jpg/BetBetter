@@ -172,17 +172,13 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
     * avg
     * 1.1
 )
-    results = {
-    "home": results["H"],
-    "draw": results["D"],
-    "away": results["A"]
-}
+    
     away_xg = (
     attack.get(away, 1.0)
     * defense.get(home, 1.0)
     * avg
 )
-    results={"H":0,"D":0,"A":0}
+    
     scores={}
     for _ in range(sims):
         hg = poisson.rvs(home_xg)
@@ -197,23 +193,15 @@ def simulate_match(home, away, attack, defense, avg, sims=10000):
     home_prob = 0.55
     draw_prob = 0.25
     away_prob = 0.20
-
-    raw_results = {
-        "H": home_prob,
-        "D": draw_prob,
-        "A": away_prob
-    }
-
-    results = {
-        "home": raw_results["H"],
-        "draw": raw_results["D"],
-        "away": raw_results["A"]
-    }
-
+   
     scores = ...
     home_xg = ...
     away_xg = ...
-
+    results = {
+        "home": home_prob,
+        "draw": draw_prob,
+        "away": away_prob
+}
     return results, scores, home_xg, away_xg
 fixtures = load_fixtures()
 
