@@ -221,7 +221,6 @@ for _, o in odds_df.iterrows():
     "home": home_prob,   # float between 0 and 1
     "draw": draw_prob,   # float between 0 and 1
     "away": away_prob    # float between 0 and 1
-}
     return results, scores, home_xg, away_xg
 
     match = next(
