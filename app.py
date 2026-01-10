@@ -224,6 +224,15 @@ for _, o in odds_df.iterrows():
             "odds": o["odds"],
             "ev": round(ev, 3)
         })
+        # Sort value bets by EV (expected value), descending
+best_bets = sorted(value_bets, key=lambda x: x["ev"], reverse=True)
+
+# Display in Streamlit
+st.header("🔥 Best Bets Today (EPL)")
+if best_bets:
+    st.dataframe(best_bets)
+else:
+    st.info("No value bets found for today.")
 total = sum(results.values())
 p_home = results["H"]/total
 p_draw = results["D"]/total
