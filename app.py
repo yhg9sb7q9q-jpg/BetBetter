@@ -166,7 +166,7 @@ attack, defense, avg = team_strengths(df)
 
 # ----- SIMULATION -----
 def simulate_match(home, away, attack, defense, avg, sims=10000):
-    home_xg = (
+home_xg = (
     attack.get(home, 1.0)
     * defense.get(away, 1.0)
     * avg
@@ -177,7 +177,7 @@ results = {
     "draw": results["D"],
     "away": results["A"]
 }
-    away_xg = (
+away_xg = (
     attack.get(away, 1.0)
     * defense.get(home, 1.0)
     * avg
@@ -217,7 +217,7 @@ predictions.append({
     "draw_prob": results["D"],
     "away_win_prob": results["A"]
 })
-    value_bets = []
+value_bets = []
 
 for _, o in odds_df.iterrows():
     home = normalize_team(o["home"])
