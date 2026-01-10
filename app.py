@@ -53,6 +53,8 @@ LEAGUE_TEAMS = {
         "villarreal"
     ]
 }
+# Average goals per match (used in simulation)
+avg_goals = 2.7  # you can tweak based on league stats
 def normalize_team(name):
     return name.strip().lower()
 st.markdown("""
