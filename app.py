@@ -97,10 +97,10 @@ st.set_page_config(
 @st.cache_data
 def load_data(file):
     return pd.read_csv(f"data/{file}")
-    @st.cache_data(ttl=3600)
+@st.cache_data(ttl=3600)
 def load_fixtures():
     return pd.read_csv("data/epl_fixtures_today.csv")
-    @st.cache_data(ttl=600)
+@st.cache_data(ttl=600)
 def load_odds():
     return pd.read_csv("data/epl_odds_today.csv")
     def is_value_bet(prob, odds, min_ev=0.05):
