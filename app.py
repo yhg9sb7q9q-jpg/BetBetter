@@ -184,7 +184,7 @@ away_xg = (
 )
 results={"H":0,"D":0,"A":0}
 scores={}
-    for _ in range(sims):
+for _ in range(sims):
         hg = poisson.rvs(home_xg)
         ag = poisson.rvs(away_xg)
         if hg>ag: results["H"]+=1
