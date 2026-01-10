@@ -239,6 +239,11 @@ p_draw = results["D"]/total
 p_away = results["A"]/total
 if home not in attack or away not in defense:
     print(f"Missing team data: {home} vs {away}")
+    # Highlight top 3 bets for emphasis
+if best_bets:
+    st.subheader("🔥 Top 3 Bets")
+    for i, bet in enumerate(best_bets[:3]):
+        st.markdown(f"**{i+1}. {bet['match']} — {bet['market']} — Odds: {bet['odds']} — EV: {bet['ev']}**")
 
 # ----- OVER/UNDER & BTTS -----
 def over_under_probs(total_xg, line=2.5):
