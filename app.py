@@ -182,8 +182,8 @@ away_xg = (
     * defense.get(home, 1.0)
     * avg
 )
-    results={"H":0,"D":0,"A":0}
-    scores={}
+results={"H":0,"D":0,"A":0}
+scores={}
     for _ in range(sims):
         hg = poisson.rvs(home_xg)
         ag = poisson.rvs(away_xg)
