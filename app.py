@@ -54,7 +54,21 @@ LEAGUE_TEAMS = {
     ]
 }
 # Average goals per match (used in simulation)
-avg_goals = 2.7  # you can tweak based on league stats
+avg_goals = 2.7
+
+# Example attack / defense ratings (expand to all teams)
+attack = {
+    "arsenal": 1.8,
+    "chelsea": 1.7,
+    "liverpool": 1.9,
+    "man city": 2.0
+}
+defense = {
+    "arsenal": 1.1,
+    "chelsea": 1.2,
+    "liverpool": 1.0,
+    "man city": 0.9
+}
 def normalize_team(name):
     return name.strip().lower()
 st.markdown("""
