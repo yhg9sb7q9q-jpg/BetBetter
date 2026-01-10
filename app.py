@@ -63,9 +63,12 @@ with st.expander("⚙️ Settings & Inputs"):
     kelly_fraction = st.slider("Kelly Fraction", 0.05, 0.5, 0.25, 0.05)
     min_value = st.slider("Min Value %", 2, 10, 6)
 
-    league = st.selectbox("League", leagues)
-    home = st.selectbox("Home Team", sorted(teams))
-    away = st.selectbox("Away Team", sorted(teams))
+league = st.selectbox("Select League", ["EPL", "La Liga"])
+
+teams = LEAGUE_TEAMS[league]
+
+attack = {team: 1.0 for team in teams}
+defense = {team: 1.0 for team in teams}
 
 # ----- LOAD LEAGUE DATA -----
 df = load_data(f"{league}.csv")
