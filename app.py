@@ -218,14 +218,17 @@ for _, row in fixtures.iterrows():
 
 st.write("RESULTS TYPE:", type(results))
 st.write("RESULTS KEYS:", list(results.keys()))
+hxg = hxg if isinstance(hxg, (int, float)) else 0
+axg = axg if isinstance(axg, (int, float)) else 0
+
 predictions.append({
     "home": home,
     "away": away,
     "home_xg": round(hxg, 2),
     "away_xg": round(axg, 2),
-    "home_win_prob": results["H"],
-    "draw_prob": results["D"],
-    "away_win_prob": results["A"]
+    "home_win_prob": results["home"],
+    "draw_prob": results["draw"],
+    "away_win_prob": results["away"]
 })
 value_bets = []
 
