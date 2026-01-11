@@ -215,21 +215,33 @@ for _, row in fixtures.iterrows():
     results, scores, hxg, axg = simulate_match(
         home, away, attack, defense, avg_goals
     )
-
+st.write("HXG:", hxg, type(hxg))
+st.write("AXG:", axg, type(axg))
+st.write("RESULTS:", results, type(results))
 st.write("RESULTS TYPE:", type(results))
 st.write("RESULTS KEYS:", list(results.keys()))
+# --- make sure hxg/axg are numbers ---
 hxg = hxg if isinstance(hxg, (int, float)) else 0
 axg = axg if isinstance(axg, (int, float)) else 0
 
+# --- make sure results dict exists and has keys ---
+home_prob = results.get("home", 0) if isinstance(results, dict) else 0
+draw_prob = results.get("draw", 0) if isinstance(results, dict) else 0
+away_prob = results.get("away", 0) if isinstance(results, dict) else 0
+
+# --- append safely ---
 predictions.append({
-    "home": home,
-    "away": away,
+    "home": str(home),
+    "away": str(away),
     "home_xg": round(hxg, 2),
     "away_xg": round(axg, 2),
-    "home_win_prob": results["home"],
-    "draw_prob": results["draw"],
-    "away_win_prob": results["away"]
+    "home_win_prob": home_prob,
+    "draw_prob": draw_prob,
+    "away_win_prob": away_prob
 })
+
+# optional: see what was appended
+st.write(predictions[-1])
 value_bets = []
 
 for _, o in odds_df.iterrows():
